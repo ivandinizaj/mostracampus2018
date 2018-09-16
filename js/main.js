@@ -6,6 +6,7 @@ function r(min,max) {
 }
 
 setInterval(function() {
+	target.position = 'absolute';
   target.style.left = r(49,51) + "%"
   target.style.top = r(49,51) + "%"
   target.style.color = "hsl("+r(0,360)+",100%, 70%)"
