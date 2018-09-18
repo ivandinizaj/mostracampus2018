@@ -18,18 +18,19 @@ table td{
 
 
 
-.top-fixed{
+#top-fixed{
   position: fixed;
   background: #2a2a2a;
   color: #fff;
   z-index: 9999;
   right: 0;
-  top: 0;
+  top: -120px;
   font-size: 18px;
   padding: 10px;
   font-family: "Bungee";
   text-align: center;
   line-height: 30px;
+  transition: top .6s ease-in-out;
 
 }
 

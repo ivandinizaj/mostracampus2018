@@ -23,7 +23,7 @@
 		</script>
 	</head>
 	<body>
-		<div class="top-fixed"> #MostraCampus <br> ciência da computação </div>
+		<div id="top-fixed"> #MostraCampus <br> ciência da computação </div>
 		<div class="reveal">
 			<div class="slides">
 				<section data-background="#000"  id="first">
@@ -104,6 +104,36 @@
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
+
+			Reveal.addEventListener( 'slidechanged', function(event ) {
+				var slide = event.indexh;
+				var topFixed = document.getElementById("top-fixed");
+				if( slide  == 0)
+					topFixed.style.top = "-120px";
+				else
+					topFixed.style.top = "0px";
+
+			} );
+			
+
+<!-- Disable 
+function disableselect(e){ 
+return false 
+} 
+
+function reEnable(){ 
+return true 
+} 
+
+//if IE4+ 
+document.onselectstart=new Function ("return false") 
+document.oncontextmenu=new Function ("return false") 
+//if NS6 
+if (window.sidebar){ 
+document.onmousedown=disableselect 
+document.onclick=reEnable 
+} 
+//--> 
 		</script>
 	</body>
 </html>
