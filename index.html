@@ -23,7 +23,7 @@
 		</script>
 	</head>
 	<body>
-		<div id="top-fixed"> #MostraCampus <br> ciência da computação </div>
+		<div id="top-fixed"> #mostracampuscc <br> ciência da computação </div>
 		<div class="reveal">
 			<div class="slides">
 				<section data-background="#000"  id="first">
@@ -35,10 +35,11 @@
 				<section data-background="#00878b">
 					<img src="images/cadeiras.png" alt="">
 				</section>
-<!-- 				<section>
+				<section>
 					<h5>Computação Gráfica</h5>
-					<img src="images/computacaoGrafica.jpg" alt="">
-				</section> -->
+					<iframe data-src="https://ivandinizaj.github.io/afterandbefore/" width="1400" height="600" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style=" margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+					
+				</section>
 				<section>
 					<h5>Inteligência Artificial - AI</h5>
 					<iframe data-src="https://magenta.tensorflow.org/assets/sketch_rnn_demo/index.html" width="1400" height="600" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style=" margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
@@ -58,12 +59,6 @@
 						</tr>
 					</table>
 				</section>
-
-<!-- 				<section>
-					<h5>SCRATCH</h5>
-					<img src="images/scratch.jpg">
-				</section> -->
-
 				<section data-background="#000">
 					<h1 class="brasil" data-text="FIM">FIM</h1> 
 				</section>
@@ -96,12 +91,7 @@
 				},
 				dependencies: [
 				 	{ src: Reveal.getQueryHash().s ? 'js/master.min.js' 
-				 	: 'js/client.min.js', async:true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				 	: 'js/client.min.js', async:true }
 				]
 			});
 
@@ -114,25 +104,23 @@
 					topFixed.style.top = "0px";
 
 			} );
-			
 
-function disableselect(e){ 
-return false 
-} 
+			function disableselect(e){ 
+				return false 
+			} 
 
-function reEnable(){ 
-return true 
-} 
+			function reEnable(){ 
+				return true 
+			} 
 
-//if IE4+ 
-document.onselectstart=new Function ("return false") 
-document.oncontextmenu=new Function ("return false") 
-//if NS6 
-if (window.sidebar){ 
-document.onmousedown=disableselect 
-document.onclick=reEnable 
-} 
-//--> 
+			//if IE4+ 
+			document.onselectstart=new Function ("return false") 
+			document.oncontextmenu=new Function ("return false") 
+			//if NS6 
+			if (window.sidebar){ 
+				document.onmousedown=disableselect 
+				document.onclick=reEnable 
+			} 
 		</script>
 	</body>
 </html>
