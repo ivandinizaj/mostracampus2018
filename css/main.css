@@ -106,12 +106,8 @@ table td{
 }
 
 .image-app{
-  transition: transform .6s ease-in-out;
-
-}
-
-.image-app:hover{
-  transform: rotateY(10deg) rotateX(-8deg) rotate(-12deg);
+  animation-delay: 1s;
+  animation: image-app 2s infinite linear alternate-reverse;
 }
 
 .brasil {
@@ -152,7 +148,18 @@ table td{
 }
 
 
+@keyframes image-app {
+  0%{
+    transform: rotateY(0deg);
+    
+  }50%{
+    transform: rotateY(10deg) rotateX(-8deg) rotate(-12deg);
 
+  }100%{
+    transform: rotateY(0deg);
+  }
+
+}
 @keyframes brasil-anim-1 {
   0% {
     clip: rect(20px, 1200px, 76px, 0);
