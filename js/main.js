@@ -29,7 +29,7 @@ if (window.sidebar){
 }
 
 if(Reveal.getQueryHash().s){
-
+	
 	var timer = new Timer();
 	var chrono = document.getElementById('chronoExample');
 	chrono.style.zIndex = 9999;
@@ -55,4 +55,18 @@ if(Reveal.getQueryHash().s){
 	timer.addEventListener('reset', function (e) {
 	    document.querySelector('#chronoExample .values').innerHTML = (timer.getTimeValues().toString());
 	}); 
+
+	document.addEventListener('keypress', function(e) {
+	    e = e || window.event;
+	    var code = e.which || e.keyCode;
+
+	  	if(code == 49)
+	  		timer.start();
+	  	else if(code == 50)
+	  		timer.pause();
+	  	else if(code == 51){
+	    	timer.reset();
+				timer.pause();
+	  	}
+	});
 }
