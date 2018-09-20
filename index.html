@@ -101,6 +101,7 @@
     <script src="js/head.min.js"></script>
     <script src="js/socket.io.slim.js"></script>
     <script src="js/reveal.js"></script>
+    <script src="js/instafeed.min.js"></script>
     <script>
     	!Reveal.getQueryHash().s || document.write('<script src="js/easytimer.js"><\/script>')
     </script>
@@ -145,6 +146,19 @@
 
 			} );
 
+
+    var feed = new Instafeed({
+        get: 'user',
+        clientId: '1f2a8c0f84954f58a79c51de89ddaa01',
+        userId: '8609375470',
+        resolution: 'low_resolution',
+        filter: function(image) {
+            return image.tags.indexOf('TAG_NAME') >= 0;
+        }
+    });
+    feed.run();
+
+    console.log(feed);
 
 		</script>
 	</body>
