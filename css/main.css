@@ -16,7 +16,7 @@ table td{
  vertical-align: middle!important;
 }
 
-#chronoExample{
+#chrono{
   position: fixed;
   text-align: center;
   bottom: 0;
@@ -24,26 +24,27 @@ table td{
   background: #fff;
   padding: 10px 30px;
   display: none;
+  width: auto;
   z-index: -999;
 }
 
-#chronoExample .values{
+#chrono .values{
   font-size: 60px;
   width: 100%;
   text-align: center;
 }
 
-#chronoExample button{
+#chrono button{
   background: transparent;
   border:  none;
   outline: none;
   cursor: pointer;
 }
-#chronoExample button:hover{
+#chrono button:hover{
   opacity: 0.6;
 }
 
-#chronoExample button:active{
+#chrono button:active{
   transform: scale(0.9);
 }
 
@@ -86,6 +87,13 @@ table td{
   font-size: 6vw;
 }
 
+#backInsta{
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
 
 .text-app, .text-app-largue, .text-app-big{
   font-family: 'Changa', sans-serif !important;
@@ -110,43 +118,13 @@ table td{
   animation: image-app 2s infinite linear alternate-reverse;
 }
 
-.brasil {
-  font-family: arial;
-  position: relative;
-   color: #fff;
-  text-align: center;
-  font-size: 7rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.brasil::before,
-.brasil::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
+.title-end{
+  position: absolute; 
+  background: #000; 
   width: 100%;
-  height: 100%;
+  z-index: 9999; 
+  opacity: 0.8; 
 }
-
-.brasil::before {
-  left: 2px;
-    clip: rect(79px, 1200px, 86px, 0);
-  text-shadow: -1px 0 red;
-  background: #000;
-  animation: brasil-anim-2 1s infinite linear alternate-reverse;
-}
-
-.brasil::after {
-  /* variation */
-  left: -2px;
-  clip: rect(79px, 1200px, 86px, 0);
-  text-shadow: -1px 0 blue;
-  background: #000;
-  animation: brasil-anim-1 1s infinite linear alternate-reverse;
-   animation-delay: -1s;
-}
-
 
 @keyframes image-app {
   0%{
@@ -159,50 +137,4 @@ table td{
     transform: rotateY(0deg);
   }
 
-}
-@keyframes brasil-anim-1 {
-  0% {
-    clip: rect(20px, 1200px, 76px, 0);
-  }
-  20% {
-    clip: rect(19px, 1200px, 16px, 0);
-  }
-  40% {
-    clip: rect(16px, 1200px, 3px, 0);
-  }
-  60% {
-    clip: rect(62px, 1200px, 78px, 0);
-  }
-  80% {
-    clip: rect(25px, 1200px, 13px, 0);
-  }
-  100% {
-    clip: rect(53px, 1200px, 86px, 0);
-  }
-}
-
-@keyframes brasil-anim-2 {
-  0% {
-    clip: rect(79px, 1200px, 86px, 0);
-  }
-  
-  20% {
-    clip: rect(20px, 1200px, 30px, 0)
-  }
-  
-  40% {
-    clip: rect(25px, 1200px, 5px, 0)
-  }
-  
-  60% {
-    clip: rect(65px, 1200px, 85px, 0)
-  }
-  
-  80% {
-    clip: rect(120px, 1200px, 145px, 0)
-  }
-  
-  100% {
-    clip: rect(95px, 1200px, 75px, 0)
-  }
 }

@@ -1,3 +1,7 @@
+
+/**
+* Animar o título inicial
+*/
 var target = document.getElementById("target");
 
 function r(min,max) {
@@ -20,51 +24,54 @@ function reEnable(){
 } 
 
 //if IE4+ 
-document.onselectstart=new Function ("return false");
-document.oncontextmenu=new Function ("return false") ;
+document.onselectstart = new Function ("return false");
+document.oncontextmenu = new Function ("return false");
 //if NS6 
 if (window.sidebar){ 
 	document.onmousedown=disableselect;
 	document.onclick=reEnable;
 }
 
+//Caso seja o Master
 if(Reveal.getQueryHash().s){
 	
-	var timer = new Timer();
-	var chrono = document.getElementById('chronoExample');
-	chrono.style.zIndex = 9999;
-	chrono.style.display = 'block';
+	var timer 			= new Timer();
+	var chrono 			= document.getElementById('chrono');
+	var chronoTimer = chrono.querySelector('.values');
 
-	document.querySelector('#chronoExample .startButton').addEventListener('click', function () {
+	chrono.style.zIndex 	= 9999;
+	chrono.style.display 	= 'block';
+
+	chrono.querySelector('.startButton').addEventListener('click', function () {
 	    timer.start();
 	});
-	document.querySelector('#chronoExample .pauseButton').addEventListener('click', function () {
+	chrono.querySelector('.pauseButton').addEventListener('click', function () {
 	    timer.pause();
 	});
-	document.querySelector('#chronoExample .stopButton').addEventListener('click', function () {
+	chrono.querySelector('.stopButton').addEventListener('click', function () {
 	    timer.reset();
 			timer.pause();
 	});
 
 	timer.addEventListener('secondsUpdated', function (e) {
-	    document.querySelector('#chronoExample .values').innerHTML = (timer.getTimeValues().toString());
+	    chronoTimer.innerHTML = (timer.getTimeValues().toString());
 	});
 	timer.addEventListener('started', function (e) {
-	    document.querySelector('#chronoExample .values').innerHTML = (timer.getTimeValues().toString());
+	    chronoTimer.innerHTML = (timer.getTimeValues().toString());
 	});
 	timer.addEventListener('reset', function (e) {
-	    document.querySelector('#chronoExample .values').innerHTML = (timer.getTimeValues().toString());
+	    chronoTimer.innerHTML = (timer.getTimeValues().toString());
 	}); 
 
 	document.addEventListener('keypress', function(e) {
 	    e = e || window.event;
 	    var code = e.which || e.keyCode;
 
-	  	if(code == 49)
+	  	if(code == 49) //tecla 1
 	  		timer.start();
-	  	else if(code == 50)
+	  	else if(code == 50) //tecla 2
 	  		timer.pause();
-	  	else if(code == 51){
+	  	else if(code == 51){ //tecla 3
 	    	timer.reset();
 				timer.pause();
 	  	}

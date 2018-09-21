@@ -23,9 +23,10 @@
 		</script>
 	</head>
 	<body>
-		<div id="chronoExample">
+		<div id="top-fixed"> #mostracampuscc <br> Ciência da Computação </div>
+		<!-- Crônometro apenas para o master -->
+		<div id="chrono">
 	    <div class="values">00:00:00</div>
-	    
 	    <div>
 	        <button class="startButton">
 	        	<?xml version="1.0" encoding="iso-8859-1"?>
@@ -35,7 +36,6 @@
 					</button>
 	        <button class="pauseButton">      	
 						<?xml version="1.0" encoding="iso-8859-1"?>
-						<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve" width="50px" height="50px">
 						<path d="M30,0C13.458,0,0,13.458,0,30s13.458,30,30,30s30-13.458,30-30S46.542,0,30,0z M27,46h-8V14h8V46z M41,46h-8V14h8V46z" fill="#FFDA44"/>
 						</svg>
@@ -48,7 +48,7 @@
 	        </button>
 	    </div>
 		</div>
-		<div id="top-fixed"> #mostracampuscc <br> Ciência da Computação </div>
+		
 		<div class="reveal">
 			<div class="slides">
 				<section data-background="#000"  id="first">
@@ -80,7 +80,7 @@
 								<p class="text-app-largue">
 									<br>
 									<br>
-								TESTE SEUS <strong>CONHECIMENTOS</strong> SOBRE O ENEM <strong>DESAFIANDO</strong> SEUS AMIGOS!
+									TESTE SEUS <strong>CONHECIMENTOS</strong> SOBRE O ENEM <strong>DESAFIANDO</strong> SEUS AMIGOS!
 								</p>
 								<img width="80%" src="images/disponiveis.png">			
 							</td>
@@ -92,8 +92,8 @@
 					</table>
 				</section>
 				<section data-background="#000" style="width: 100%; height: 100%;">
-					<h3 style="background: #000; opacity: 0.8; position: absolute; z-index: 9999; width: 100%; ">ATÉ LOGO</h3> 
-					<div id="lastslide"></div> 
+					<h3 class="title-end">ATÉ LOGO</h3> 
+					<div id="backInsta"></div> 
 				</section>
 
 			</div>
@@ -104,7 +104,7 @@
     <script src="js/socket.io.slim.js"></script>
     <script src="js/reveal.js"></script>
     <script>
-    	!Reveal.getQueryHash().s || document.write('<script src="js/easytimer.js"><\/script>')
+    	!Reveal.getQueryHash().s || document.write('<script src="js/easytimer.js"><\/script>');
     </script>
     <script src="js/main.js"></script>
 
@@ -136,37 +136,26 @@
 				var slide = event.indexh;
 
 				var topFixed = document.getElementById("top-fixed");
+				//Esconder a hashtag
 				if( slide  == 0){
 					topFixed.style.top = "-120px";
 					if(Reveal.getQueryHash().s){
 						timer.reset();
 						timer.pause();
 					}
+				//Exibir a hashtag
 				}else
 					topFixed.style.top = "0px";
 
 				if( slide == 2 ){
 
-					var token = '8609375470.ba4c844.211f15ae1818410ba851564e1b635303',
-					num_photos = 1, // maximum 20
-					container = document.getElementById( 'rudr_instafeed' ), // it is our <ul id="rudr_instafeed">
-					scrElement = document.createElement( 'script' );
+					var token 	= '8609375470.ba4c844.211f15ae1818410ba851564e1b635303',
+					num_photos 	= 1, // maximum 20
+					scrElement 	= document.createElement( 'script' ),
+					backInsta 	= document.querySelector('#backInsta');
 
-					window.mishaProcessResult = function( data ) {
-
-					var lastslide = document.querySelector('#lastslide');
-
-					lastslide.style.backgroundImage = "url('" +data.data[0].images.standard_resolution.url + "')";
-					lastslide.style.backgroundSize = 'cover !important';
-					lastslide.style.width = '100%';
-					lastslide.style.height = '100%';
-					lastslide.style.position = 'absolute';
-					lastslide.style.backgroundRepeat = 'no-repeat';
-					lastslide.style.top = '0px';
-					lastslide.style.backgroundPosition = 'center';
-
-					 // =  
-
+					mishaProcessResult = function( data ) {
+						backInsta.style.backgroundImage = "url('" + data.data[0].images.standard_resolution.url + "')";
 					}
 
 					scrElement.setAttribute( 'src', 'https://api.instagram.com/v1/users/self/media/recent?access_token=' + token + '&count=' + num_photos + '&callback=mishaProcessResult' );
