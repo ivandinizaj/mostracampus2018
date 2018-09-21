@@ -120,7 +120,7 @@ table td{
 
 .title-end{
   position: absolute; 
-  background: #000; 
+  background: #fff; 
   width: 100%;
   z-index: 9999; 
   opacity: 0.8; 
